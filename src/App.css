@@ -144,6 +144,7 @@ body{
   grid-template-columns: auto;
   padding: 1rem;
   max-width:25rem;
+  min-width: 20rem;
   justify-items: center;
 }
 
@@ -186,7 +187,14 @@ body{
 /* choice box */
 .choice-box{
   width:90%;
-  padding: 1.1rem 0
+  padding: 1.1rem 0;
+  margin-bottom:1.875rem
+}
+
+.choice-box:hover{
+  box-sizing: border-box;
+  border: 1px solid var(--accent-clr);
+  cursor: pointer;
 }
 
 
@@ -265,9 +273,10 @@ body{
   .grid-one-column{
     box-sizing: border-box;
     max-width: none;
+    
     align-items: center;
-    width:100%;
-    min-height:100%;
+    width:100vw;
+    min-height:100vh;
   }
 
   .menu.grid-one-column{
