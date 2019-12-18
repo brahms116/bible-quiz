@@ -13,7 +13,7 @@ const Game = ()=>{
                 <EmptyDiv height='6.5rem'/>
                 <div className="question-text">What book is before 1 and 2 Corinthians</div>
                 <EmptyDiv height='6.25em'/>
-                <div className='choice-box choice-text shadow round-border'>Genesis</div>
+                <div className='choice-box choice-text shadow round-border incorrect'>Genesis</div>
                 <EmptyDiv height='1.875em'/>
                 <div className='choice-box choice-text shadow round-border'>Revelations</div>
                 <EmptyDiv height='1.875em'/>
