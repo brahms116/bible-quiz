@@ -7,34 +7,26 @@ export const GameContext = createContext()
 const reducer = (state,action)=>{
     switch(action.type){
         case('NEW'):            
-            const qo = questions(state.numChoices)         
-
-
-            const newState = {
+            const qo = questions(state.numChoices)
+            return {
                 ...state,
                 question:qo.question,
                 correctAns:qo.correctAns,
-                choices:qo.choices
-
-
-            }
-
-
-            return newState
+                choices:qo.choices,
+                hasAnswered:false
+            }            
         case 'CORRECT':
-            console.log('hello')
             return {
                 ...state,
                 score:state.score+1,
+                hasAnswered:true,
                 choices: state.choices.map((d)=>{
                     if(d.id===action.payload) d.status='correct'
                     return d
                 })
-            }
-            return 
+            }            
         case 'INCORRECT':
-            if(state.choices[action.payload].status!='incorrect'){
-                console.log('here i am')
+            if(state.choices[action.payload].status!=='incorrect'){
                 return {
                     ...state,
                     score:state.score-1,
@@ -45,16 +37,32 @@ const reducer = (state,action)=>{
                 }
             }
             return state
-            
+        case 'ADD_OPT':
+            if(state.numChoices<8){
+                return{
+                    ...state,
+                    numChoices:state.numChoices+1
+                }
+            }
+            else return state
+        case 'MINUS_OPT':
+            if(state.numChoices>2){
+                return{
+                    ...state,
+                    numChoices:state.numChoices-1
+                }
+            } 
+            else return state          
         default:
     }
 }
 
 const initState ={
+    hasAnswered:false,
     score:0,
     question:'',
     correctAns:-1,
-    numChoices:4,
+    numChoices:3,
     choices:[]
 }
 

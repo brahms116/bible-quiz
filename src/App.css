@@ -122,6 +122,10 @@ body{
   border-top: 1.4rem  solid var(--accent-clr);
 }
 
+.arrow-up:hover ,.arrow-down:hover{
+  opacity: 0.8;
+  cursor: pointer;
+}
 
 /*layouts*/
 
@@ -132,9 +136,9 @@ body{
 .layout{
   position:absolute;
   left:50%;
-  top:50%;
-  transform: translate(-50%,-50%);
   
+  transform: translate(-50%,0);
+  margin-top:10rem
   
   
 }
@@ -220,6 +224,8 @@ body{
 
 
 .options{
+  opacity: 0;
+  z-index: 3;
   background:var(--medium-clr-op);
   position: absolute;
   width:100%;
@@ -240,6 +246,7 @@ body{
 
 .panel .btn-outlined{
   justify-self: right;
+  margin-right:1rem;
 }
 
 .panel .control{
@@ -259,7 +266,7 @@ body{
     font-size: 20px;
   }
   .layout{
-    
+    margin-top:0;
     
     left:0;
     top:0;
